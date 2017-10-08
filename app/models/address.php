@@ -13,7 +13,7 @@
 
 		function __construct(array $attributes){
 			$this->id = (empty($attributes['id'])) ? null : $attributes['id'];
-			$this->street = (empty($attributes['sreet'])) ? null : $attributes['street'];
+			$this->street = (empty($attributes['street'])) ? null : $attributes['street'];
 			$this->number = (empty($attributes['number'])) ? null : $attributes['number'];
 			$this->complement = (empty($attributes['complement'])) ? null : $attributes['complement'];
 			$this->city = (empty($attributes['city'])) ? null : $attributes['city'];

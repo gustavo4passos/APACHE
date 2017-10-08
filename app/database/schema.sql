@@ -102,7 +102,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `db_mvc`.`course` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
-  `duration` INT NOT NULL,
+  `duration` INT NULL DEFAULT NULL,
   `code` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `name_UNIQUE` (`name` ASC),

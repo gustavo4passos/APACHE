@@ -16,11 +16,8 @@
 			$this->cpf = (empty($attributes['cpf'])) ? null : $attributes['cpf'];
 			$this->rg = (empty($attributes['rg'])) ? null : $attributes['rg'];
 			$this->email = (empty($attributes['email'])) ? null : $attributes['email'];
-			$link = self::start_mysqli();
-			$result = mysqli_query($link, "SELECT max(id) FROM `address`");
-			$address = mysqli_fetch_array($result, MYSQLI_NUM);		
-			//var_dump($address); die;
-			$this->address_id = $address[0];
+			$this->address_id = empty($attributes['address_id']) ? null : $attributes['address_id'];
+
 
 		}
 

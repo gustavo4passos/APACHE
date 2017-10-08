@@ -1,8 +1,8 @@
 <?php
 	session_start();
-	if(isset($_SESSION['username']))
+	if(isset($_SESSION['admin_username']) && !empty($_SESSION['admin_username']))
 	{
-		header("Location: ../views/StudentHomepage.php");
+		header("Location: ../views/AdminHomepage.php");
 	}
 ?>
 

@@ -17,7 +17,7 @@
     <h1> Bem Vindo <?= $_SESSION['name']; ?> </h1>
     <a href="#">Cadastrar turma</a>
     <div>
-      <a href="Logout.php">Logout</a>
+      <a href="StudentLogout.php">Logout</a>
 
     </div>
   </body>

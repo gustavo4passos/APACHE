@@ -1,13 +1,61 @@
 <?php
 require_once("../helpers/connection.php");
 
+	class LoginController extends Connection
+	{
+		public static function login()
+		{
+			$username = "";
+			$password = "";
+
+			$username_err = "";
+			$password_err = "";
+
+			if(empty(trim($_POST['password'])))
+			{
+				$password_err = 'Por favor digite a sua senha.';
+				echo "Password can't be empty.\n";
+			}
+			else if(empty(trim($_POST['CPF'])))
+			{
+				$username_err = 'Por favor, digite o seu nome de usuario.';
+				echo "Username can't be empty.\n";
+			}
+			else
+			{
+				$pdo = self::start();
+				$username = $_POST['CPF'];
+				$password = $_POST['password'];
+
+				$sql_request = "SELECT cpf, id FROM user WHERE cpf = :cpf";
+			}
+
+		}
+
+		private function comparePasswordToHash($password, $passwordHash)
+		{
+			if(password_verify($password, $passwordHash))
+			{
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+
+		private function getUserId($CPF)
+		{
+			$sql_request = "SELECT id FROM user WHERE cpf = :cpf";
+		}
+	}
+
+	LoginController::login();
+
 	$username = "";
 	$password = "";
 
 	$username_err = "";
 	$password_err = "";
-
-	var_dump($_POST); die;
 
 	if(empty(trim($_POST['password'])))
 	{

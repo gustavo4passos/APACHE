@@ -8,14 +8,14 @@
 	class StudentController{
 
 		public static function create(){
-			
-			
+
+
 			//var_dump($_POST); die;
-		
+
 			if(!empty($_POST['password']) && !empty($_POST['name']) && !empty($_POST['cpf']) && !empty($_POST['rg'])
 				&& !empty($_POST['matriculation']) && !empty($_POST['born_date']) && !empty($_POST['entry_date'])
 				&& !empty($_POST['course_id'])/*(LEMBRAR DE VERIFICAR SE O CURSO É VÁLIDO)*/){
-				
+
 				$_POST['password'] = md5($_POST['password']);
 
 				$addres = new Address($_POST);
@@ -29,8 +29,8 @@
 				}
 
 				$_POST['address_id'] = Retrieve::maxid_from("address");
-				
-				
+
+
 				$user = new User($_POST);
 				try{
 					$user->insert();
@@ -43,7 +43,7 @@
 				$_POST['user_id'] = Retrieve::maxid_from("user");
 				//var_dump($_POST); die;
 
-				
+
 				$student = new Student($_POST);
 				//var_dump($student); die;
 				try{
@@ -67,7 +67,7 @@
 						$_SESSION['msg'] = ">Erro";
 					}
 				}
-				
+
 				if(!empty($_POST['phone_number_2'])){
 					$phone2 = array('number'=>$_POST['phone_number_2'], 'user_id'=>$_POST['user_id']);
 					//var_dump($phone2); die;
@@ -85,7 +85,7 @@
 			}
 			header("location: ../views/alunotest.php");
 
-			
+
 		}
 
 	}
@@ -93,7 +93,7 @@
 	$postActions = array('create', 'read',  'update', 'delete');
 
 		if(isset($_POST['action']) && in_array($_POST['action'], $postActions)){
-			$action = $_POST['action'];			
+			$action = $_POST['action'];
 			StudentController::$action();
 		}
 ?>

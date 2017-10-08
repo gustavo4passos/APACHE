@@ -1,6 +1,5 @@
 <?php
 require_once("../helpers/connection.php");
-	session_start();
 
 	class LoginController extends Connection
 	{
@@ -9,51 +8,51 @@ require_once("../helpers/connection.php");
 			$username = "";
 			$password = "";
 
+			$username_err = "";
+			$password_err = "";
+
 			if(empty(trim($_POST['password'])))
 			{
-				$_SESSION['msg'] = "Campo 'Senha' não pode ser vazio.";
-				header("Location: ../views/StudentHomepage.php");
+				$password_err = 'Por favor digite a sua senha.';
+				echo "Password can't be empty.\n";
 			}
 			else if(empty(trim($_POST['CPF'])))
 			{
-				$_SESSION['msg'] = "Campo 'CPF' não pode ser vazio.";
-				header("Location: ../views/StudentHomepage.php");
+				$username_err = 'Por favor, digite o seu nome de usuario.';
+				echo "Username can't be empty.\n";
 			}
 			else
 			{
 				$username = $_POST['CPF'];
 				$password = $_POST['password'];
 
-				$userInfo = self::getUserIdAndName($username);
+				$id = self::getUserId($username);
 
-				if($userInfo != null)
+				if($id != null)
 				{
-					if(self::checkPasswordMatch($userInfo['id'], $password))
+					if(self::checkPasswordMatch($id, $password))
 					{
-						$_SESSION['username'] = $username;
-						$_SESSION['name'] = $userInfo['name'];
-						header("Location: ../views/StudentHomepage.php");
+						echo "The passwords match.\n";
+						header("Location: https://www.youtube.com/watch?v=dQw4w9WgXcQ");
 					}
 					else
 					{
-						$_SESSION['msg'] = "Senha incorreta.";
-						header("Location: ../views/StudentLogin.php");
+						echo "The passwords do not match.\n";
 					}
 				}
 				else
 				{
-					$_SESSION['msg'] = "CPF não cadastrado.";
-					header("Location: ../views/StudentHomepage.php");
+					echo "Unable to find ID from CPF $username\n";
 				}
 			}
 		}
 
-		private static function getUserIdAndName( $cpf )
+		private static function getUserId( $cpf )
 		{
 
 			$pdo = self::start();
 			// Requests the user id from the database from the CPF
-			$sqlRequestUserId = "SELECT id, name FROM user WHERE cpf = :cpf";
+			$sqlRequestUserId = "SELECT id FROM user WHERE cpf = :cpf";
 			if($stmt = $pdo->prepare($sqlRequestUserId))
 			{
 				$stmt->bindParam(':cpf', $cpf, PDO::PARAM_STR);
@@ -62,9 +61,11 @@ require_once("../helpers/connection.php");
 					if($stmt->rowCount() == 1)
 					{
 						$userData = $stmt->fetch();
-						return $userData;
+						$userId = $userData['id'];
+						return $userId;
 
 					}
+					
 					else
 					{
 						return null;

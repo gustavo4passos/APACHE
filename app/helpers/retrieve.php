@@ -12,9 +12,9 @@
 			{
 				$array[$index] = $result;
 				$result = $stm->fetch(PDO::FETCH_ASSOC);
-				$index++;	
+				$index++;
 			}
-					
+
 			return $array;
 		}
 
@@ -50,6 +50,7 @@
 		}
 	}
 
+	
 	// Retrieve::select_from("user");
 	// echo Retrieve::maxid_from("user");
 	// Retrieve::select_join("student");

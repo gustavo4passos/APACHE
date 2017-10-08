@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	if(isset($_SESSION['username']))
+	{
+		header("Location: ../views/StudentHomepage.php");
+	}
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -35,10 +42,14 @@
 							   	<input type="password" name="password" placeholder="Senha">
 							</div>
 									<button name="action">Fazer login</button>
+									<?php if(isset($_SESSION['msg']) && !empty($_SESSION['msg'])) {
+										echo "<p> {$_SESSION['msg']} </p>";
+									}
+									?>
 						</div>
 				   </div>
 				</div>
 			</form>
-				<div class="admin-access-text"> <a href="#"> Acesso como administrador. </a></div>
+				<div class="admin-access-text"> <a href="AdminLogin.php"> Acesso como administrador. </a></div>
 		</body>
 </html>

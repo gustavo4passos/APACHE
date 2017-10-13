@@ -102,7 +102,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `db_mvc`.`course` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
-  `duration` INT NOT NULL,
+  `duration` INT NULL DEFAULT NULL,
   `code` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `name_UNIQUE` (`name` ASC),
@@ -174,29 +174,6 @@ CREATE TABLE IF NOT EXISTS `db_mvc`.`phone_number` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `db_mvc`.`professor_lectures_subject`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_mvc`.`professor_lectures_subject` (
-  `professor_user_id` INT NOT NULL,
-  `subject_id` INT NOT NULL,
-  PRIMARY KEY (`professor_user_id`, `subject_id`),
-  INDEX `fk_professor_has_subject_subject1_idx` (`subject_id` ASC),
-  INDEX `fk_professor_has_subject_professor1_idx` (`professor_user_id` ASC),
-  CONSTRAINT `fk_professor_has_subject_professor1`
-    FOREIGN KEY (`professor_user_id`)
-    REFERENCES `db_mvc`.`professor` (`user_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_professor_has_subject_subject1`
-    FOREIGN KEY (`subject_id`)
-    REFERENCES `db_mvc`.`subject` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
 -- -----------------------------------------------------
 -- Table `db_mvc`.`course_has_subject`
 -- -----------------------------------------------------
@@ -228,14 +205,22 @@ CREATE TABLE IF NOT EXISTS `db_mvc`.`class` (
   `code` VARCHAR(20) NOT NULL,
   `capacity` INT NOT NULL,
   `subject_id` INT NOT NULL,
+  `professor_id` INT NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `code_UNIQUE` (`code` ASC),
   INDEX `fk_class_subject1_idx` (`subject_id` ASC),
+  INDEX `fk_class_professor1_idx`(`professor_id` ASC),
+  CONSTRAINT `fk_class_professor1`
+    FOREIGN KEY (`professor_id`)
+    REFERENCES `db_mvc`.`professor` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT `fk_class_subject1`
     FOREIGN KEY (`subject_id`)
     REFERENCES `db_mvc`.`subject` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION) 
+
 ENGINE = InnoDB;
 
 
@@ -256,28 +241,6 @@ CREATE TABLE IF NOT EXISTS `db_mvc`.`class_has_student` (
   CONSTRAINT `fk_class_has_student_student1`
     FOREIGN KEY (`student_user_id`)
     REFERENCES `db_mvc`.`student` (`user_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `db_mvc`.`professor_has_class`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_mvc`.`professor_has_class` (
-  `professor_user_id` INT NOT NULL,
-  `class_id` INT NOT NULL,
-  PRIMARY KEY (`professor_user_id`, `class_id`),
-  INDEX `fk_professor_has_class_class1_idx` (`class_id` ASC),
-  INDEX `fk_professor_has_class_professor1_idx` (`professor_user_id` ASC),
-  CONSTRAINT `fk_professor_has_class_professor1`
-    FOREIGN KEY (`professor_user_id`)
-    REFERENCES `db_mvc`.`professor` (`user_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_professor_has_class_class1`
-    FOREIGN KEY (`class_id`)
-    REFERENCES `db_mvc`.`class` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

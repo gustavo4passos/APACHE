@@ -5,18 +5,31 @@ Guia de estilo InfoJr: dar espaço entre a tag e as chaves "#box {";
 * {
   margin: 0px;
   padding: 0px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-family: "Verdana", sans-serif;
 }
 
 body {
     background-color:#11a6d4;
 }
+
+.admin-body {
+  background-color: #999;
+}
+.admin-access-text {
+  text-align: center;
+}
+
 #div-cliente {
     background-color: white;
-    position: center; 
+    position: center;
 }
 #div-cliente-logo {
 
 }
+
 #logo-dcc {
     height: 200px;
     width:  355px;
@@ -26,16 +39,16 @@ body {
 #login-box {
   background-color: #1992b7;
   border-radius:5px;
-  height:260px;
+  height:290px;
   margin:140px auto 0px;
   width: 380px;
   margin-top: 40px;
 }
 #login-box-interno {
   background-color: #fdfdfd;
-  border-radius:5px; 
+  border-radius:5px;
   box-shadow: 0px 5px red;
-  height:240px;
+  height:270px;
   margin:10px ;
   overflow: hidden;
   position: absolute;
@@ -62,7 +75,6 @@ body {
     height: 35px;
     padding-left: 5px;
     font: ´normal 13px s ans-serif;
-    color: #aeaeae;
 }
 .imput-div:hover {
     background-color: #ffffff;
@@ -71,5 +83,21 @@ body {
     border-color:#ffff00;
 }
 #input-senha {
-    
+
+}
+
+.admin-access-text{
+  margin: 20px 20px;
+}
+.admin-access-text a{
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+.admin-access-text a:hover{
+  color: #ddd;
+}
+
+p{
+  color: red;
 }

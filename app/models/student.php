@@ -10,13 +10,13 @@
 		private $entry_date;
 		private $course_id;
 
-		function __construct(array $atributes){
-			$this->user_id = empty($atributes['user_id']) ? null : $atributes['user_id'];
-			$this->password = empty($atributes['password']) ? null : $atributes['password'];
-			$this->matriculation = empty($atributes['matriculation']) ? null : $atributes['matriculation'];
-			$this->born_date = empty($atributes['born_date']) ? null : $atributes['born_date'];
-			$this->entry_date = empty($atributes['entry_date']) ? null : $atributes['entry_date'];
-			$this->course_id = empty($atributes['course_id']) ? null : $atributes['course_id'];
+		function __construct(array $attributes){
+			$this->user_id = empty($attributes['user_id']) ? null : $attributes['user_id'];
+			$this->password = empty($attributes['password']) ? null : $attributes['password'];
+			$this->matriculation = empty($attributes['matriculation']) ? null : $attributes['matriculation'];
+			$this->born_date = empty($attributes['born_date']) ? null : $attributes['born_date'];
+			$this->entry_date = empty($attributes['entry_date']) ? null : $attributes['entry_date'];
+			$this->course_id = empty($attributes['course_id']) ? null : $attributes['course_id'];
 
 		}
 

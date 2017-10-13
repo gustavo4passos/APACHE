@@ -1,0 +1,164 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-family: "Verdana", sans-serif;
+}
+
+body {
+    background-color:#5192db;
+}
+
+html, body{
+	width: 100%;
+	height: 100%;
+}
+
+header {
+	text-align: center;
+	background-color: #eee;
+	height: 60px;
+	width: 100%;
+	border-bottom: 1px solid #333;
+	top: 0;
+	position: fixed;
+
+}
+
+nav ul li a {
+	/*color: #11a6d4;*/
+	color: #000;
+	font-weight: bold;
+	text-decoration: none;
+	margin: 0px 20px;
+}
+
+nav ul li a:hover{
+	color: #ff0000;
+}
+
+nav ul{
+
+	margin: 20px 0 0 0;
+	display: inline-flex;
+	list-style-type:none
+}
+
+.inicio h1 {
+	color: #eee;
+	text-align: center;
+	font-size: 70px;
+	padding-top: 20%;
+	margin-top:60px;
+}
+
+.inicio_department h1{
+	color: #eee;
+	font-size: 50px;
+	padding: 20px 2.5%;
+	margin-top:60px;
+}
+
+.inicio_department h4, .inicio_department a{
+	padding: 0px 1.25%;
+	margin-bottom: 20px;
+	font-size: 16px;
+	color: #eee;;
+	text-decoration: none;
+	-webkit-transition: font-size 0.15s, color 0.15s,margin-bottom .15s;
+	transition: font-size 0.15s, color 0.15s, margin-bottom .15s;
+
+}
+
+.inicio_department h4, .inicio_department a:hover{
+	color: #555;
+	padding: 0px 1.25%;
+	font-size: 20px;
+	text-decoration: underline;
+	margin-bottom: 20px;
+}
+
+.create_form h3{
+	padding: 10px 2.5%;
+	color:#eee;
+}
+
+.create_form form{
+	padding: 0px 2.5%;
+	color:#fff;
+}
+
+.create_form input{
+	margin: 3px 0px 5px 0px;
+}
+.create_form select{
+	margin: 3px 0px 5px 0px;
+	width: 220px;
+}
+.create_form button{
+	padding: 3px 5px;
+	margin-top: 5px;
+}
+.create_form a{
+	padding-left: 15px;
+	text-decoration: underline;
+	font-weight: bold;
+	color: #fff;
+	-webkit-transition:color 0.15s;
+	transition:color 0.15s;
+
+}
+.create_form a:hover{
+	color: #555;
+}
+
+.nenhum{
+	font-style: italic;
+	float: left;
+}
+
+
+table {
+	margin: 0px 2.5%;
+	width: 95%;
+	border-collapse: collapse;
+
+}
+
+th {
+	background-color:#333;
+	font-size: 15px;
+	color:#eee;
+	padding-left:4px;
+	padding-right:4px;
+	border:solid 2px #000;
+	height:26px;
+	padding-right:5px;
+}
+
+td {
+	background-color:#eee;
+	font-size: 15px;
+	color: #111;
+	padding-left:4px;
+	padding-right:4px;
+	border:solid 2px #000;
+	height:26px;
+	padding-right:5px;
+}
+
+.professor_details {
+  text-align: center;
+  width: auto;
+  margin-top: 40px;
+}
+
+.voltar-cell {
+  text-align: center;
+}
+
+.editar{
+	text-align: center;
+}

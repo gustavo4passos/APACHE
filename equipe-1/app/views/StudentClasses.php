@@ -43,7 +43,7 @@
           {
             ?>
             <tr>
-              <td class="enroll-link" colspan="3">Você não está matriculado em nenhuma disciplina <a href="StudentClassEnrolling.php"> (Matricular-se agora.) </a></td>
+              <td class="enroll-link" colspan="3" style="text-align:center"> <br> Você não está matriculado em nenhuma disciplina <br> <a href="StudentClassEnrolling.php"> (Matricular-se agora) <br> </a></td>
             </tr>
           </table>
             <?php
@@ -68,6 +68,11 @@
 
               ?>
             </table>
+            <section class="create-form">
+              <form action="../controllers/StudentClassEnrollingController.php" method="POST">
+                <div style="text-align:center"> <br> <button name="action" value="delete"> Cancelar matrícula. </button> </div>
+              </form>
+            </section>
             <?php
 
           }

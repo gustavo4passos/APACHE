@@ -79,14 +79,14 @@
                       <td> {$professor['schooling']} </td>
                     </tr>
                     <tr class=\"voltar-cell\">
-                      <td colspan=\"2\"> <a href=\"ProfessorView.php\">Voltar </a> </td>
+                      <td colspan=\"2\" class=\"name-select\"> <a href=\"ProfessorView.php\">Voltar </a> </td>
                     </tr>";
             }
             else
             {
               echo "<tr>
                         <td> Professor não existe </td>
-                    <tr>
+                    </tr>
                     <tr>
                       <td> <a href=\"ProfessorView.php\"> Voltar </a> </td>
                     </tr>";
@@ -95,7 +95,7 @@
           else {
             echo "<tr>
                       <td> Professor não existe </td>
-                  <tr>
+                  </tr>
                   <tr>
                     <td> <a href=\"ProfessorView.php\"> Voltar </a> </td>
                   </tr>";

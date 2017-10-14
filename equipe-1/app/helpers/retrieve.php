@@ -49,6 +49,28 @@
 			}
 		}
 
+		public static function select_join_assoc($table){
+			if($table == "student" || $table == "professor"){
+				$connect = self::start();
+				$stm = $connect->prepare("SELECT `$table`.*, `user`.* FROM `$table` INNER JOIN `user` ON `$table`.`user_id` = `user`.`id`");
+				$stm->execute();
+				$array = [];
+				$index = 0;
+				$result = $stm->fetch(PDO::FETCH_ASSOC);
+				while($result){
+					$array[$result['id']] = $result;
+					$result = $stm->fetch(PDO::FETCH_ASSOC);
+					$index++;
+				}
+				//var_dump($array); die;
+				return $array;
+			}
+			else{
+				echo "Parâmetro inválido! (function 'select_join')";
+				return NULL;
+			}
+		}
+
 		public static function select_from_where($table, $column, $value){
 			$connect = self::start();
 			$stm = $connect->prepare("SELECT * FROM `$table` where `$column` = '$value'");
@@ -143,7 +165,6 @@
 				return $availableClasses;
 			}
 	}
-
 	// Retrieve::select_from("user");
 	// echo Retrieve::maxid_from("user");
 	// Retrieve::select_join("student");

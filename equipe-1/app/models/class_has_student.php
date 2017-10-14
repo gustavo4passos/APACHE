@@ -16,6 +16,14 @@
       $stm->BindValue(":class_id", $this->class_id, PDO::PARAM_INT);
       $stm->BindValue(":student_id", $this->student_id, PDO::PARAM_INT);
       return $stm->execute();
+      }
+
+    public function delete(){
+      $pdo = self::start();
+      $sqlStatement = $pdo->prepare("DELETE FROM `class_has_student` WHERE `student_user_id` = :student_id");
+      $sqlStatement->BindValue(":student_id", $this->student_id, PDO::PARAM_INT);
+      $success = $sqlStatement->execute();
+      return $success;
     }
   }
 ?>

@@ -8,7 +8,15 @@
     header("Location: ../views/StudentLogin.php");
     exit;
   }
- ?>
+  else
+  {
+      $studentCurrentClasses = Retrieve::select_from_where('class_has_student', 'student_user_id', $_SESSION['id']);
+      if(!empty($studentCurrentClasses))
+      {
+        header("Location: StudentClasses.php");
+      }
+  }
+?>
 
  <!DOCTYPE HTML>
  <html>
@@ -47,18 +55,30 @@
             else
             {
               $allSubjects = Retrieve::select_from_assoc("subject");
+              $allProfessors = Retrieve::select_join_assoc("professor"); ?>
+
+
+              <p style="text-align:center;"> Turmas disponíveis </p> <br>
+
+              <?php
 
               for($i = 0; $i < sizeof($availableSubjects); $i++){ ?>
                 <table>
                 <?php
                 if(isset($availableClasses[$availableSubjects[$i]['subject_id']]) && !empty($availableClasses[$availableSubjects[$i]['subject_id']]))
                 {
-                  echo "<tr> <th> {$allSubjects[$availableSubjects[$i]['subject_id']]['name']} </th> </tr>\n";
+                  echo "<tr> <th colspan=\"2\"> {$allSubjects[$availableSubjects[$i]['subject_id']]['name']} </th> </tr>\n";
                   for($j = 0; $j < sizeof($availableClasses[$availableSubjects[$i]['subject_id']]); $j++)
-                  {
-                    echo "<tr>\n";
-                    echo "<td> <input type=\"radio\" name=\"{$availableSubjects[$i]['subject_id']}\" value=\"{$availableClasses[$availableSubjects[$i]['subject_id']][$j]['id']}\"> {$availableClasses[$availableSubjects[$i]['subject_id']][$j]['code']} </td>\n";
-                    echo "</tr>";
+                  { ?>
+                    <tr>
+                      <td>
+                        <?= "<input type=\"radio\" name=\"{$availableSubjects[$i]['subject_id']}\" value=\"{$availableClasses[$availableSubjects[$i]['subject_id']][$j]['id']}\"> {$availableClasses[$availableSubjects[$i]['subject_id']][$j]['code']}"; ?>
+                      </td>
+                      <td>
+                        Professor: <?= $allProfessors[$availableClasses[$availableSubjects[$i]['subject_id']][$j]['professor_id']]['name']; ?>
+                      </td>
+                    </tr>
+                    <?php
                   }
                 } ?>
 

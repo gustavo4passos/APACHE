@@ -49,7 +49,7 @@
           // var_dump($students);
           foreach($students as $row) { ?>
                 <tr>
-                <td><?= $row['name']; ?></td>
+                <?= "<td class=\"name-select\"> <a href=\"StudentDetailsView.php?id={$row['id']}\"> {$row['name']} </a> </td>" ?>
                 <td><?= $row['matriculation']; ?></td>
                 <td><?= $courses[$row['course_id']]['name'] ?></td>
                 <td><?= $row['entry_date'] ?></td>

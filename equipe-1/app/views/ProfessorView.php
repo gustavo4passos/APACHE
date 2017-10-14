@@ -50,7 +50,7 @@
           // var_dump($deps_with_prof); //die;
           foreach($professors as $row) { ?>
                 <tr>
-                <td id="show_details" onmouseover="showDetails()" onmouseout="showBackC"><?php echo "<a href=\"ProfessorDetailsView.php?id={$row['id']}\">"?> <?= $row['name']; ?></a></td>
+                <td class="name-select"><?= "<a href=\"ProfessorDetailsView.php?id={$row['id']}\">"?> <?= $row['name']; ?></a></td>
                 <td><?= $departments[$row['department_id']]['name']; ?></td>
                 <td><?= $row['email'] ?></td>
                 <td class="editar"><a href="#">Editar</a></td>

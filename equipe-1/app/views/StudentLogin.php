@@ -4,7 +4,6 @@
 	if(isset($_SESSION['username']))
 	{
 		header("Location: ../views/StudentHomepage.php");
-		// header("Location: https://www.youtube.com/watch?v=dQw4w9WgXcQ");
 	}
 ?>
 <!DOCTYPE html>

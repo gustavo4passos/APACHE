@@ -124,6 +124,24 @@
 						return null;
 					}
 			}
+
+			public static function get_available_classes_from_course(array $availableSubjects)
+			{
+				$nAvailableSubjects = sizeof($availableSubjects);
+        $availableClasses = array(array());
+
+        for($i = 0; $i < $nAvailableSubjects; $i++)
+        {
+          $currentSubjectId = $availableSubjects[$i]['subject_id'];
+          $availableClassesOnTheSubject = Retrieve::select_from_where("class", "subject_id", $currentSubjectId);
+          if($availableClassesOnTheSubject > 0)
+          {
+            $availableClasses[$currentSubjectId] = $availableClassesOnTheSubject;
+          }
+        }
+
+				return $availableClasses;
+			}
 	}
 
 	// Retrieve::select_from("user");

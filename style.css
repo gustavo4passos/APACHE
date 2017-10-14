@@ -1,0 +1,75 @@
+/*
+Guia de estilo InfoJr: ordenar alfabeticamente a estilização com a tecla "F9";
+Guia de estilo InfoJr: dar espaço entre a tag e as chaves "#box {";
+*/
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+    background-color:#11a6d4;
+}
+#div-cliente {
+    background-color: white;
+    position: center; 
+}
+#div-cliente-logo {
+
+}
+#logo-dcc {
+    height: 200px;
+    width:  355px;
+    padding-top: 25px;
+    position: center;
+}
+#login-box {
+  background-color: #1992b7;
+  border-radius:5px;
+  height:260px;
+  margin:140px auto 0px;
+  width: 380px;
+  margin-top: 40px;
+}
+#login-box-interno {
+  background-color: #fdfdfd;
+  border-radius:5px; 
+  box-shadow: 0px 5px red;
+  height:240px;
+  margin:10px ;
+  overflow: hidden;
+  position: absolute;
+  width: 360px;
+}
+#login-box-label {
+  background-color: #00cc00;
+  border-bottom: 1px solid #bfc3c5;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  box-shadow: 1px 3px #dedede;
+  font: bold  14px/45px sans-serif;
+  height: 45px;
+  text-align: center;
+}
+
+.input-div {
+    margin: 10px;
+    padding: 5px;
+    background-color: #f2f5f7;
+}
+.input-div input {
+    width: 310px;
+    height: 35px;
+    padding-left: 5px;
+    font: ´normal 13px s ans-serif;
+    color: #aeaeae;
+}
+.imput-div:hover {
+    background-color: #ffffff;
+}
+.imput-div:hover {
+    border-color:#ffff00;
+}
+#input-senha {
+    
+}

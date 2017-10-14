@@ -54,6 +54,15 @@ nav ul{
 	margin-top:60px;
 }
 
+.inicio h6 {
+	color: #eee;
+	text-align: center;
+	font-size: 19px;
+	padding-top: 20%;
+	margin-top:60px;
+}
+
+
 .inicio_department h1{
 	color: #eee;
 	font-size: 50px;
@@ -114,6 +123,14 @@ nav ul{
 	color: #555;
 }
 
+.enroll-link a{
+  color: blue;
+}
+
+.enroll-button {
+  text-align: center;
+}
+
 .nenhum{
 	font-style: italic;
 	float: left;
@@ -147,6 +164,16 @@ td {
 	border:solid 2px #000;
 	height:26px;
 	padding-right:5px;
+}
+
+.name-select:hover {
+  background-color: #777;
+}
+
+
+.name-select a {
+  text-decoration: none;
+  display: block;
 }
 
 .professor_details {

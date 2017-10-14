@@ -21,15 +21,14 @@
 		}
 
 		public function insert(){
-				$connect = self::start();
-		        $stm = $connect->prepare("INSERT INTO `class` (`init_date`, `code`, `capacity`, `subject_id`, `professor_id`) VALUES (:init_date , :code, :capacity, :subject_id, :professor_id)");
-		        $stm->BindValue(":init_date", $this->init_date, PDO::PARAM_STR);
-		        $stm->BindValue(":code", $this->code, PDO::PARAM_STR);
-		        $stm->BindValue(":capacity", $this->capacity, PDO::PARAM_INT);
-		        $stm->BindValue(":subject_id", $this->subject_id, PDO::PARAM_INT);
-		        $stm->BindValue(":professor_id", $this->professor_id, PDO::PARAM_INT);
-
-		        return $stm->execute();
+			$connect = self::start();
+	    $stm = $connect->prepare("INSERT INTO `class` (`init_date`, `code`, `capacity`, `subject_id`, `professor_id`) VALUES (:init_date , :code, :capacity, :subject_id, :professor_id)");
+	    $stm->BindValue(":init_date", $this->init_date, PDO::PARAM_STR);
+	    $stm->BindValue(":code", $this->code, PDO::PARAM_STR);
+	    $stm->BindValue(":capacity", $this->capacity, PDO::PARAM_INT);
+	    $stm->BindValue(":subject_id", $this->subject_id, PDO::PARAM_INT);
+	    $stm->BindValue(":professor_id", $this->professor_id, PDO::PARAM_INT);
+	    return $stm->execute();
 		}
 	}
 ?>

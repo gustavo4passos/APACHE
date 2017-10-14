@@ -1,0 +1,39 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+/*
+Guia de estilo InfoJr: ordenar alfabeticamente a estilização com a tecla "F9";
+Guia de estilo InfoJr: dar espaço entre a tag e as chaves "#box {";
+*/
+body {
+    background-color:#11a6d4;
+}
+
+#login-box {
+  background-color: #1992b7;
+  border-radius:5px;
+  height:260px;
+  margin:140px auto 0px;
+  width: 380px;
+}
+#login-box-interno {
+  background-color: #fdfdfd;
+  width: 360px;
+  height:240px;
+  position: absolute;
+  margin:10px ;
+  border-radius:5px; 
+  box-shadow: 0px 5px red;
+  overflow: hidden;
+}
+#login-box-label {
+  background-color: #00cc00;
+  height: 45px;
+  text-align: center;
+  font: bold  14px/45px sans-serif;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: 1px solid #bfc3c5;
+  box-shadow: 1px 3px #dedede;
+}

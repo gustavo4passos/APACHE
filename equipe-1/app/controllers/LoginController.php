@@ -33,8 +33,9 @@ require_once("../helpers/SessionStarter.php");
 					{
 						$_SESSION['username'] = $username;
 						$_SESSION['name'] = $userInfo['name'];
-						// header("Location: ../views/StudentHomepage.php");
-						header("Location: https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+						$_SESSION['id'] = $userInfo['id'];
+						
+						header("Location: ../views/StudentHomepage.php");
 					}
 					else
 					{
